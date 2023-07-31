@@ -54,12 +54,12 @@ public class ProvinceService implements IProvinceService {
         Province province = provinceRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Data", "id", id));
 
-        province.setName(province.getName());
-        province.setNameEnglish(province.getNameEnglish());
-        province.setCode(province.getCode());
-        province.setCodeEnglish(province.getCodeEnglish());
-        province.setRegion(province.getRegion());
-        province.setRegionEnglish(province.getRegionEnglish());
+        province.setName(provinceRequest.getName());
+        province.setNameEnglish(provinceRequest.getNameEnglish());
+        province.setCode(provinceRequest.getCode());
+        province.setCodeEnglish(provinceRequest.getCodeEnglish());
+        province.setRegion(provinceRequest.getRegion());
+        province.setRegionEnglish(provinceRequest.getRegionEnglish());
         Province updateData = provinceRepository.save(province);
         return mapToRequest(updateData);
     }

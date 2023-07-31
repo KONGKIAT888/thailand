@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -28,5 +29,8 @@ public class Province {
     private String region;
     @Column(name = "region_english")
     private String regionEnglish;
+
+    @OneToMany(mappedBy = "province", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<District> districts = new HashSet<>();
 
 }

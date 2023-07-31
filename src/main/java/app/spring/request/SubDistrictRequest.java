@@ -6,22 +6,16 @@ import lombok.Data;
 
 @Data
 @JsonPropertyOrder({
-        "id",
         "name",
         "name_english",
-        "code",
-        "code_english",
-        "region",
-        "region_english"
+        "district_id"
 })
-public class ProvinceRequest {
+public class SubDistrictRequest {
+
     private String name;
     @JsonProperty("name_english")
     private String nameEnglish;
-    private String code;
-    @JsonProperty("code_english")
-    private String codeEnglish;
-    private String region;
-    @JsonProperty("region_english")
-    private String regionEnglish;
+    @JsonProperty("district_id")
+    private Long districtId;
+
 }
